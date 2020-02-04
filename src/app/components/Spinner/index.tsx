@@ -1,17 +1,10 @@
 import * as React from 'react';
-import {
-    Card,
-    CardBody,
-    Col,
-    Row,
-    Container,
-
-} from 'reactstrap';
+import { Card, CardBody, Col, Row, Container } from 'reactstrap';
 
 interface IProps {
     message?: string;
     className?: string;
-    style?: any;
+    style?: unknown;
 }
 
 const Spinner = (props: IProps) => (
@@ -26,7 +19,22 @@ const Spinner = (props: IProps) => (
     </div>
 );
 
-export const inlineSpinner = <i className={'fas fa-sync-alt mr-2 fa-spin'}/>;
+export const inlineSpinner = <i className="fas fa-sync-alt fa-spin" />;
+export const CardBlockSpinner = () => (
+    <div
+        className="d-flex justify-content-center align-items-center bg-warning"
+        style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            opacity: 0.4,
+        }}
+    >
+        <i className="fas fa-sync-alt fa-spin text-primary font-size-xl" />
+    </div>
+);
 
 interface ISpinnerInCardProps extends IProps {
     containerClass?: string;
@@ -49,11 +57,11 @@ export const SpinnerInRow = (props: IProps) => (
 
 interface ISpinnerWrapperProps extends IProps {
     isLoading: boolean;
-    children: React.ReactElement<any>;
+    children: React.ReactElement<unknown>;
 }
 
 export const SpinnerWrapper = (props: ISpinnerWrapperProps) => {
-    const {isLoading, children, ...restProps} = props;
+    const { isLoading, children, ...restProps } = props;
     return isLoading ? <SpinnerInCard {...restProps} /> : children;
 };
 
@@ -69,8 +77,8 @@ export const SpinnerFullscreen = (props: IProps) => (
     </div>
 );
 
-export const SpinnerWithDelay = (props: {delay?: number} & IProps ) => {
-    const { delay, ...spinnerProps} = props;
+export const SpinnerWithDelay = (props: { delay?: number } & IProps) => {
+    const { delay, ...spinnerProps } = props;
     const [show, setShow] = React.useState(false);
     React.useEffect(() => {
         const timeout = setTimeout(() => {
@@ -79,11 +87,11 @@ export const SpinnerWithDelay = (props: {delay?: number} & IProps ) => {
         return () => clearTimeout(timeout);
     }, []);
 
-    if(!show) { return null; }
+    if (!show) {
+        return null;
+    }
 
-    return (
-        <Spinner {...spinnerProps} />
-    );
+    return <Spinner {...spinnerProps} />;
 };
 
 export default Spinner;

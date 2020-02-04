@@ -5,7 +5,8 @@ import { hot } from 'react-hot-loader/root';
 import Spinner from './components/Spinner';
 import { RootContainer } from './containers/Root';
 import { createBrowserHistory } from 'history';
-import { Homepage } from './views/NotesWidget/Homepage';
+import { Homepage } from './views/Homepage';
+import NotesWidget from './views/NotesWidget';
 
 const MainLayout = React.lazy(() => import('./containers/MainLayout'));
 const PublicLayout = React.lazy(() => import('./containers/PublicLayout'));
@@ -14,7 +15,6 @@ const isLoggedIn = true;
 const MainLayoutRoutes = () => (
     <MainLayout>
         <Switch>
-            <Homepage />
         </Switch>
     </MainLayout>
 );
