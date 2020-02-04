@@ -1,3 +1,4 @@
+import FormattedMsg from 'app/components/i18n/FormattedMsg';
 import { IQuestionnaireQuestion } from 'app/stores/QuestionnairesStore';
 import { observer } from 'mobx-react';
 import { getSnapshot } from 'mobx-state-tree';
@@ -9,9 +10,9 @@ import {
     ModalFooter,
     ModalHeader,
 } from 'reactstrap';
-import { QuestionMSTForm } from './QuestionMSTForm';
+import { QuestionMSTForm } from 'app/views/Questions/Form';
 import { IQuestion } from 'app/stores/QuestionsStore';
-import { DocTypes } from 'app/constants';
+import { documentTypes } from 'app/constants/documentTypes';
 interface IBuilderQuestionModalProps {
     question: IQuestionnaireQuestion | IQuestion | null;
     onClose: () => void;
@@ -34,6 +35,25 @@ export const BuilderQuestionModal = observer(
             onClose();
         }
 
+        // const editControls = (
+        //     <div>
+        //         <UncontrolledButtonDropdown inNavbar>
+        //             <DropdownToggle size="sm" caret>
+        //                 More Actions
+        //             </DropdownToggle>
+        //             <DropdownMenu>
+        //                 <DropdownItem onClick={onDelete}>
+        //                     <i className="far fa-trash-alt text-danger" />
+        //                     <FormattedMsg id="delete" />
+        //                 </DropdownItem>
+        //                 <DropdownItem onClick={onDelete}>
+        //                     <i className="far fa-trash-alt text-danger" />
+        //                     <FormattedMsg id="delete" />
+        //                 </DropdownItem>
+        //             </DropdownMenu>
+        //         </UncontrolledButtonDropdown>
+        //     </div>
+        // );
         function saveAndUpdateTemplate () {
             onSubmit();
             onSubmitTemplate();
@@ -43,7 +63,7 @@ export const BuilderQuestionModal = observer(
                 Save & Update Template
             </Button>
         );
-        const isTemplate =  question?.documentType === DocTypes.Question;
+        const isTemplate =  question?.documentType === documentTypes.Question;
         return (
             <Modal isOpen={!!question} toggle={onCloseLocal} size="lg">
                 <ModalHeader className="py-2">Edit Question</ModalHeader>
@@ -59,7 +79,7 @@ export const BuilderQuestionModal = observer(
                     {/* <div>{question?.created && editControls}</div> */}
                     <div>
                         <Button onClick={onCloseLocal} size="sm" className="mr-2">
-                            Cancel
+                            <FormattedMsg id="cancel" />
                         </Button>
 
                         <Button onClick={onSubmit} size="sm" color="primary">

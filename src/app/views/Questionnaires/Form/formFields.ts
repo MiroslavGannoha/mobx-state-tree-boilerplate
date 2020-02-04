@@ -1,0 +1,30 @@
+export const formFields = {
+    fields: [
+        // 'questionnaireIds',
+        // 'template',
+        'name',
+        // 'isAutoNumbering',
+        'questionnaireType',
+        // 'personaId',
+        // 'status',
+        // 'filledByStaff',
+        // 'filledBy',
+        // 'sentToClient',
+    ],
+    labels: {
+        // questionnaireIds: '',
+        // template: 'Template',
+        name: 'Name',
+        // isAutoNumbering: 'Auto Numbering',
+        questionnaireType: 'Type',
+        // personaId: 'Persona',
+        // status: 'Status',
+        // filledByStaff: '',
+        // filledBy: '',
+        // sentToClient: '',
+    },
+    rules: {
+        name: 'required',
+        questionnaireType: 'required',
+    },
+};
