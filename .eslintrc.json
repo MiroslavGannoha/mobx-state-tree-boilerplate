@@ -1,0 +1,122 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        // "plugin:prettier/recommended",
+        // "prettier/react",
+        "prettier/@typescript-eslint"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-hooks"
+        // "prettier"
+    ],
+    "globals": {
+        "LP_API": "readonly",
+        "LP_AUTH": "readonly",
+        "LP_ONESIGNAL": "readonly",
+        "LP_PUBLISHABLE_KEY": "readonly",
+        "LP_TEST_COUPON_SKIP_CARD": "readonly",
+        "LP_APP_INSIGHTS_KEY": "readonly",
+        "module": "readonly"
+    },
+    "rules": {
+        "react/jsx-no-bind": "error",
+        "react/destructuring-assignment": "error",
+        // "prettier/prettier": ["error",
+        //     {
+        //         "proseWrap": "never"
+        //     },
+        //     { "usePrettierrc": true }
+        // ],
+        "max-len": [
+            "error",
+            {
+                "code": 120,
+                "tabWidth": 4
+            }
+        ],
+        "indent": [
+            "error",
+            4
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "comma-dangle": [
+            "error",
+            "always-multiline"
+        ],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/interface-name-prefix": [
+            "error",
+            {
+                "prefixWithI": "always"
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": [
+            "error",
+            {
+                "fixToUnknown": true
+            }
+        ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "off",
+        "react/prop-types": "off",
+        "react/display-name": "off",
+        "require-atomic-updates": "off"
+    },
+    "settings": {
+        "react": {
+            "createClass": "createReactClass", // Regex for Component Factory to use,
+            // default to "createReactClass"
+            "pragma": "React", // Pragma to use, default to "React"
+            "version": "detect" // React version. "detect" automatically picks the version you have installed.
+            // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
+            // default to latest and warns if missing
+            // It will default to "detect" in the future
+        },
+        "propWrapperFunctions": [
+            // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`. If this isn"t set, any propTypes wrapped in a function will be skipped.
+            "forbidExtraProps",
+            {
+                "property": "freeze",
+                "object": "Object"
+            },
+            {
+                "property": "myFavoriteWrapper"
+            }
+        ],
+        "linkComponents": [
+            // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+            "Hyperlink",
+            {
+                "name": "Link",
+                "linkAttribute": "to"
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": ["** /*.ts", "**/*.tsx"]
+        }
+    ]
+}

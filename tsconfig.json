@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "target": "es5",
+        "jsx": "react",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "declaration": false,
+        "noUnusedLocals": true,
+        "removeComments": true,
+        "strict": true,
+        "noImplicitAny": false,
+        "noImplicitReturns": false,
+        "strictBindCallApply": false,
+        "strictFunctionTypes": false,
+        // "esModuleInterop": true,
+        "outDir": "build",
+        "lib": [
+            "es6",
+            "es7",
+            "es2017",
+            "dom"
+        ],
+        "baseUrl": "src"
+    },
+    "exclude": [
+        "dist",
+        "build",
+        "node_modules",
+        "test",
+        "wwwroot",
+    ]
+}

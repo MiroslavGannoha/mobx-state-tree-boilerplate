@@ -1,0 +1,9 @@
+// Override Boostrap variables
+// Import Bootstrap source files
+@import "node_modules/bootstrap/scss/bootstrap";
+// React bootstrap table
+@import "node_modules/react-bootstrap-table-next/dist/react-bootstrap-table2.min";
+@import "node_modules/react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min";
+// Toastify
+@import "node_modules/react-toastify/dist/ReactToastify";
+
